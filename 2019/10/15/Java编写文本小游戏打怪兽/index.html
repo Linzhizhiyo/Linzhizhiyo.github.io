@@ -8,14 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Xiao An&#39;s Cloud House</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Java,Student,Game and movie">
-<meta property="og:type" content="website">
+  <meta name="description" content="hero打怪兽的文本游戏为什么程序员做不好游戏？因为程序员自己就不玩游戏。">
+<meta name="keywords" content="Java,Student,Game and movie">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Xiao An&#39;s Cloud House">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/10/15/Java编写文本小游戏打怪兽/index.html">
 <meta property="og:site_name" content="Xiao An&#39;s Cloud House">
+<meta property="og:description" content="hero打怪兽的文本游戏为什么程序员做不好游戏？因为程序员自己就不玩游戏。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-15T02:43:53.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xiao An&#39;s Cloud House">
+<meta name="twitter:description" content="hero打怪兽的文本游戏为什么程序员做不好游戏？因为程序员自己就不玩游戏。">
   
     <link rel="alternative" href="/atom.xml" title="Xiao An&#39;s Cloud House" type="application/atom+xml">
   
@@ -154,19 +158,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Java编写文本小游戏打怪兽" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Java编写文本小游戏打怪兽" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="hero打怪兽的文本游戏"><a href="#hero打怪兽的文本游戏" class="headerlink" title="hero打怪兽的文本游戏"></a>hero打怪兽的文本游戏</h1><p>为什么程序员做不好游戏？因为程序员自己就不玩游戏。</p>
-        
-          <a class="article-more-a" href="/2019/10/15/Java编写文本小游戏打怪兽/#more">more >></a>
-        
+<a id="more"></a>
+
+<p>  现在看来，这个小游戏总体来说的设置还是非常简单的，首先要设置一个玩家类，一个怪兽类。</p>
+<p>  玩家类的类名为WJ，设置三个私有属性分别是sm（生命），gj（攻击）与fy（防御），玩家与怪兽的如何交互？玩家与怪兽进行攻击，玩家所受到的伤害则是<strong>怪兽的攻击力-玩家的防御</strong>，反之怪兽同理。</p>
+<p>顺便一提，在WJ类里面private关键字的功能是：</p>
+<p>  <strong>把变量或者方法变成私有的，只有本类或者本类的实例对象里面能够使用和访问，其他类是不可以使用的。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WJ</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> sm;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> gj;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> fy;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getSm</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSm</span><span class="params">(<span class="keyword">double</span> sm)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sm = sm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getGj</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> gj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGj</span><span class="params">(<span class="keyword">double</span> gj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.gj = gj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getFy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fy;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFy</span><span class="params">(<span class="keyword">double</span> fy)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.fy = fy;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gj2</span><span class="params">(GS gs1)</span></span>&#123;</span><br><span class="line">        gs1.setSm(gs1.getSm()-gj+gs1.getFy());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gj3</span><span class="params">(GS gs2)</span></span>&#123;</span><br><span class="line">        gs2.setSm(gs2.getSm()-<span class="keyword">this</span>.getGj()+gs2.getFy());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gj4</span><span class="params">(GS gs3)</span></span>&#123;</span><br><span class="line">        gs3.setSm(gs3.getSm()-<span class="keyword">this</span>.getGj()+gs3.getFy());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  怪兽类的类名为GS，生命攻击防御的设置与玩家相同，代码块如下：</p>
+<p>因为在玩家类里面只设置了一个玩家1，所以在怪兽类以及怪兽的子类里面都会在最后设置一个与玩家1攻击的方法，如果设置多个玩家，即设置几个玩家类的子类，如果不需要特殊技能的情况下只在怪兽父类里设置，在怪兽子类里面调用即可，如果是有特殊技能的话，则需要在子类里面<strong>重写</strong>该方法。</p>
+<p>  <strong>但无论是调用还是重写，都要从子类中继承父类。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GS</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> sm;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> gj;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> fy;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSm</span><span class="params">(<span class="keyword">double</span> sm)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sm=sm;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getSm</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getGj</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> gj;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGj</span><span class="params">(<span class="keyword">double</span> gj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.gj = gj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getFy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fy;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFy</span><span class="params">(<span class="keyword">double</span> fy)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.fy = fy;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gj1</span><span class="params">(WJ wj1)</span></span>&#123;</span><br><span class="line">        wj1.setSm(wj1.getSm()-gj+wj1.getFy());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  如下是打怪兽文本游戏的主函数与主方法，在主方法里面实例化wj1 gs1 gs2 gs3对象，并给各个子类的私有属性赋值。</p>
+<p>  这里用到了一个Scanner函数，</p>
+<p><code>Scanner input=new Scanner(System.in);</code></p>
+<p>创建一个Scanner对象 input 并加了一个System.in的参数 表示的是键盘的输入 因此这个input对象可以调用键盘输入的东西。</p>
+<p>``int contents=input.nextInt();`</p>
+<p>  这句话的意思是把用键盘输入的东西放入contents对象里，在命令行输入的下一个完整的输入会放在此对象中，且为int类型，则只能输入整数类型，例如：1、2、3</p>
+<h5 id="在主函数中使用了两个循环函数"><a href="#在主函数中使用了两个循环函数" class="headerlink" title="在主函数中使用了两个循环函数"></a>在主函数中使用了两个循环函数</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>()&#123;</span><br><span class="line">    </span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>()&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//if else if是 两个条件符合其一，则运行符合条件下的内容。</span></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;<span class="keyword">while</span>() <span class="comment">//括号里面写的是条件，如果符合该条件则继续运行do里面的内容</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestA</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">            WJ wj1=<span class="keyword">new</span> WJ();</span><br><span class="line">            GS gs1=<span class="keyword">new</span> GS();</span><br><span class="line">            Devil gs2=<span class="keyword">new</span> Devil();</span><br><span class="line">            Velociraptor gs3=<span class="keyword">new</span> Velociraptor();</span><br><span class="line"><span class="comment">//创建对象玩家1与怪兽1</span></span><br><span class="line">            gs1.setSm(<span class="number">50</span>);</span><br><span class="line">            gs1.setFy(<span class="number">5</span>);</span><br><span class="line">            gs1.setGj(<span class="number">15</span>);</span><br><span class="line"><span class="comment">//用set给怪兽的私有属性赋值</span></span><br><span class="line">            gs2.setSm(<span class="number">100</span>);</span><br><span class="line">            gs2.setFy(<span class="number">5</span>);</span><br><span class="line">            gs2.setGj(<span class="number">20</span>);</span><br><span class="line"><span class="comment">//用set给怪兽2的私有属性赋值</span></span><br><span class="line">            gs3.setSm(<span class="number">50</span>);</span><br><span class="line">            gs3.setFy(<span class="number">0</span>);</span><br><span class="line">            gs3.setGj(<span class="number">30</span>);</span><br><span class="line"><span class="comment">//用set给怪兽3的私有属性赋值</span></span><br><span class="line">            wj1.setSm(<span class="number">125</span>);</span><br><span class="line">            wj1.setFy(<span class="number">10</span>);</span><br><span class="line">            wj1.setGj(<span class="number">25</span>);</span><br><span class="line"><span class="comment">//用set给玩家的私有属性赋值</span></span><br><span class="line">        System.out.println(<span class="string">"请选择与恶魔，怪兽还是迅猛龙决斗："</span> +</span><br><span class="line">                <span class="string">"1为怪兽 2为恶魔，3为迅猛龙 请输入数字"</span>);</span><br><span class="line">        Scanner input=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> contents=input.nextInt();</span><br><span class="line">        <span class="keyword">if</span> (contents==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                gs1.gj1(wj1);</span><br><span class="line">                wj1.gj2(gs1);</span><br><span class="line">                System.out.println(<span class="string">"玩家剩余血量："</span> + wj1.getSm());</span><br><span class="line">                System.out.println(<span class="string">"怪兽剩余血量："</span> + gs1.getSm());</span><br><span class="line">            &#125;<span class="keyword">while</span> (wj1.getSm()&gt;<span class="number">0</span>&amp;&amp;gs1.getSm()&gt;<span class="number">0</span>);</span><br><span class="line"><span class="comment">//用do while循环在玩家与怪兽之间选出存活者</span></span><br><span class="line">            <span class="keyword">if</span>(wj1.getSm()&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">"怪兽获得胜利，玩家死亡！"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(gs1.getSm()&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">"玩家获得胜利，怪兽死亡!"</span>);</span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">//简单的if else if循环输出谁获得胜利</span></span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(contents==<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                gs2.jingHai(wj1);</span><br><span class="line">                wj1.gj3(gs2);</span><br><span class="line"><span class="comment">//调用怪兽类与玩家类中得方法</span></span><br><span class="line">                System.out.println(<span class="string">"玩家剩余血量："</span> + wj1.getSm());</span><br><span class="line">                System.out.println(<span class="string">"恶魔剩余血量："</span> + gs2.getSm());</span><br><span class="line">            &#125;<span class="keyword">while</span> (wj1.getSm()&gt;<span class="number">0</span>&amp;&amp;gs2.getSm()&gt;<span class="number">0</span>);</span><br><span class="line"><span class="comment">//用do while循环在玩家与怪兽之间选出存活者</span></span><br><span class="line">            <span class="keyword">if</span>(wj1.getSm()&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">"恶魔获得胜利，玩家死亡！"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(gs2.getSm()&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">"玩家获得胜利，恶魔死亡!"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(contents==<span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> i=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(i&lt;<span class="number">2</span>)&#123;</span><br><span class="line">                    i++;</span><br><span class="line">                    gs3.chongFeng(wj1);</span><br><span class="line">                    gs3.chongFeng(wj1);</span><br><span class="line">                    System.out.println(<span class="string">"迅猛龙使用了冲锋技能对玩家造成了"</span>+gs3.getGj()*<span class="number">2</span>+<span class="string">"伤害"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                gs3.chongFeng(wj1);</span><br><span class="line">                wj1.gj4(gs3);</span><br><span class="line"><span class="comment">//调用怪兽类与玩家类中定义的ptgj1与ptgj2的方法</span></span><br><span class="line">                System.out.println(<span class="string">"玩家剩余血量："</span> + wj1.getSm());</span><br><span class="line">                System.out.println(<span class="string">"迅猛龙剩余血量："</span> + gs3.getSm());</span><br><span class="line">            &#125;<span class="keyword">while</span> (wj1.getSm()&gt;<span class="number">0</span>&amp;&amp;gs3.getSm()&gt;<span class="number">0</span>);</span><br><span class="line"><span class="comment">//用do while循环在玩家与怪兽之间选出存活者</span></span><br><span class="line">            <span class="keyword">if</span>(wj1.getSm()&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">"迅猛龙获得胜利，玩家死亡！"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(gs3.getSm()&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">"玩家获得胜利，迅猛龙死亡!"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(contents&lt;=<span class="number">0</span>&amp;&amp;contents&gt;<span class="number">3</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">"输入错误，请重启游戏！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  下面贴出两个个怪兽子类的代码块</p>
+<p>Velociraptor（迅猛龙）</p>
+<p>  其实本来想写一个眩晕来着，但是仔细想了想实现起来好像有难度…一番尝试之后放弃了，只能在迅猛龙初始攻击的时候进行冲锋，效果是造成原伤害的两倍，实现功能在主函数里面。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Velociraptor</span> <span class="keyword">extends</span> <span class="title">GS</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gj1</span><span class="params">(WJ wj1)</span></span>&#123;</span><br><span class="line">        wj1.setSm(wj1.getSm()-<span class="keyword">this</span>.getGj()+wj1.getFy());</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>  Devil（恶魔）</p>
+<p>  恶魔子类里面用了一个随机函数Random，使用的时候要在代码开始时导入<strong>java.util.Random</strong>包</p>
+<p>Random与if一起使用，成了一个有百分之20概率Devil使用技能的功能。</p>
+<p>``int zhongji=new Random().nextInt(4);`</p>
+<p>  new一个新的Random对象 zhongji 获取随机数，且设置获取数据的范围（0，4）包括0，不包括4，则0,1,2,3在四个数中随机产生中一个数，则是25%概率。</p>
+<p>  恶魔的技能设置为在攻击时有25的概率转变为技能攻击<strong>惊骇</strong>，具体代码如下所示。</p>
+<p><code>if(zhongji==0)</code></p>
+<p><code>{wj1.setSm(wj1.getSm()*0.5);</code></p>
+<p><code>System.out.println(&quot;恶魔使用了惊骇技能对玩家造成了&quot;+wj1.getSm()+&quot;伤害！&quot;);}</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Devil</span> <span class="keyword">extends</span> <span class="title">GS</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jingHai</span><span class="params">(WJ wj1)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> zhongji=<span class="keyword">new</span> Random().nextInt(<span class="number">4</span>);</span><br><span class="line">            <span class="keyword">if</span>(zhongji==<span class="number">0</span>)&#123;</span><br><span class="line">                wj1.setSm(wj1.getSm()*<span class="number">0.5</span>);</span><br><span class="line">                System.out.println(<span class="string">"恶魔使用了惊骇技能对玩家造成了"</span>+wj1.getSm()+<span class="string">"伤害！"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        wj1.setSm(wj1.getSm()-<span class="keyword">this</span>.getGj()+wj1.getFy());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后记：</p>
+<p>  这是我们换了Java老师后的第一节java基础课，老师讲的很好，很多之前懵懵懂懂的知识都讲的很清楚了，可是觉得在此游戏当中，当我们说生命攻击防御不同算做第二种怪的时候，老师说不能算作一种怪，其实在游戏里，技能相同，但生命值不同，攻击与防御各有优劣的两种怪物其实是两种怪物，但老师说不算一种怪。</p>
+<p>  后来理解了一点老师的想法，虽然老师不怎么玩过游戏，但是老师的想法是想让我们做出两种不同的攻击方式，两种不同的攻击技能，理解，在前面所写的程序员不会写游戏说的有些片面，但也着实反应出中国游戏市场的混乱不堪，换皮游戏，骗钱游戏屡出不穷，这些游戏无论是公司老板亦或者是做游戏的程序员本身，都没有玩过游戏，所以做不出好游戏。如果玩过游戏的话，怎么不知道玩家想要什么，玩家不想要什么，做出一款好游戏，真的有那么难吗？</p>
+<p>  听取观众以及客户的需求与意见，是各行各业都需要的至关重要的能力。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -175,16 +239,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/15/Java编写文本小游戏打怪兽/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/15/Java编写文本小游戏打怪兽/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/29/面向对象与面向程序的简单概述/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -199,113 +322,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面向对象与面向程序的简单概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="面向对象与面向过程的简单概述"><a href="#面向对象与面向过程的简单概述" class="headerlink" title="面向对象与面向过程的简单概述"></a>面向对象与面向过程的简单概述</h1><p>面向对象简单来说是为一个框架，而面向过程则细分到每一个程序下面。</p>
-        
-          <a class="article-more-a" href="/2019/08/29/面向对象与面向程序的简单概述/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/面向对象与面向程序的简单概述/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hero打怪兽的文本游戏"><span class="toc-number">1.</span> <span class="toc-text">hero打怪兽的文本游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#在主函数中使用了两个循环函数"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">在主函数中使用了两个循环函数</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
   
-    <article id="post-dos界面及基础常识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="dos界面及基础常识"><a href="#dos界面及基础常识" class="headerlink" title="dos界面及基础常识"></a>dos界面及基础常识</h1><p>  什么是语言？语言是人与人交流的工具，而计算机语言，极其简单的来说，是人与计算机之间沟通的语言。
-        
-          <a class="article-more-a" href="/2019/08/25/dos界面及基础常识/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/25/dos界面及基础常识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
+
   
 
 
@@ -328,8 +370,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
